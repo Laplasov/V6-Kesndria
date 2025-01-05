@@ -1,0 +1,578 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\V6-Kesndria\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\commands\\shop\\shopkeeper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:commands\\shop\\shopkeeper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\commands\\shop\\shopitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:commands\\shop\\shopitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\units\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:units\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\commands\\callbackhandler\\stashhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:commands\\callbackhandler\\stashhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\commands\\callbackhandler\\attackenemyhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:commands\\callbackhandler\\attackenemyhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\units\\skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:units\\skills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\jsonstest\\darkspownsdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:jsonstest\\darkspownsdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\commands\\character\\charactercreation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:commands\\character\\charactercreation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\commands\\character\\characterdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:commands\\character\\characterdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\jsonstest\\userclaims.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:jsonstest\\userclaims.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\jsonstest\\usercharacterdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:jsonstest\\usercharacterdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\jsonstest\\presetenemisdangion.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:jsonstest\\presetenemisdangion.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\jsonstest\\presetenemis.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:jsonstest\\presetenemis.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\jsonstest\\presetdarkenemis.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:jsonstest\\presetdarkenemis.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\units\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:units\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\units\\characterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:units\\characterdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\units\\itemdropcollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:units\\itemdropcollection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\managers\\saveloadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:managers\\saveloadmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\jsons\\darkspownsdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:jsons\\darkspownsdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\managers\\massagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:managers\\massagemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\units\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:units\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\commands\\character\\characteritems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:commands\\character\\characteritems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\commands\\character\\charactertrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:commands\\character\\charactertrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\units\\buff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:units\\buff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\tasksmanager\\healthupdateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:tasksmanager\\healthupdateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\tasksmanager\\enemyspawnservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:tasksmanager\\enemyspawnservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\tasksmanager\\enemyreminderservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:tasksmanager\\enemyreminderservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\tasksmanager\\dungeonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:tasksmanager\\dungeonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\tasksmanager\\buffservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:tasksmanager\\buffservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\tasksmanager\\stashservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:tasksmanager\\stashservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\commands\\character\\characterdeletion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:commands\\character\\characterdeletion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|d:\\v6-kesndria\\global\\mainglobal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81F677D8-B795-47D2-84A7-E7CED8EFD166}|V6-Kesndria.csproj|solutionrelative:global\\mainglobal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ShopItems.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Commands\\Shop\\ShopItems.cs",
+              "RelativeDocumentMoniker": "Commands\\Shop\\ShopItems.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Commands\\Shop\\ShopItems.cs",
+              "RelativeToolTip": "Commands\\Shop\\ShopItems.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T14:51:11.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ShopKeeper.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Commands\\Shop\\ShopKeeper.cs",
+              "RelativeDocumentMoniker": "Commands\\Shop\\ShopKeeper.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Commands\\Shop\\ShopKeeper.cs",
+              "RelativeToolTip": "Commands\\Shop\\ShopKeeper.cs",
+              "ViewState": "AgIAAO4AAAAAAAAAAAAIwBMAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T14:51:09.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StashHandler.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Commands\\CallbackHandler\\StashHandler.cs",
+              "RelativeDocumentMoniker": "Commands\\CallbackHandler\\StashHandler.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Commands\\CallbackHandler\\StashHandler.cs",
+              "RelativeToolTip": "Commands\\CallbackHandler\\StashHandler.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAowGwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T18:22:36.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "darkSpownsData.json",
+              "DocumentMoniker": "D:\\V6-Kesndria\\JSONsTest\\darkSpownsData.json",
+              "RelativeDocumentMoniker": "JSONsTest\\darkSpownsData.json",
+              "ToolTip": "D:\\V6-Kesndria\\JSONsTest\\darkSpownsData.json",
+              "RelativeToolTip": "JSONsTest\\darkSpownsData.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAB6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-04T14:39:03.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T10:48:14.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Skills.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Units\\Skills.cs",
+              "RelativeDocumentMoniker": "Units\\Skills.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Units\\Skills.cs",
+              "RelativeToolTip": "Units\\Skills.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwDYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T10:05:43.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AttackEnemyHandler.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Commands\\CallbackHandler\\AttackEnemyHandler.cs",
+              "RelativeDocumentMoniker": "Commands\\CallbackHandler\\AttackEnemyHandler.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Commands\\CallbackHandler\\AttackEnemyHandler.cs",
+              "RelativeToolTip": "Commands\\CallbackHandler\\AttackEnemyHandler.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAAALcAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T09:04:27.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Character.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Units\\Character.cs",
+              "RelativeDocumentMoniker": "Units\\Character.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Units\\Character.cs",
+              "RelativeToolTip": "Units\\Character.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAcwBoAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T09:59:38.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CharacterCreation.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Commands\\Character\\CharacterCreation.cs",
+              "RelativeDocumentMoniker": "Commands\\Character\\CharacterCreation.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Commands\\Character\\CharacterCreation.cs",
+              "RelativeToolTip": "Commands\\Character\\CharacterCreation.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAswIQAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T16:05:07.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CharacterDisplay.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Commands\\Character\\CharacterDisplay.cs",
+              "RelativeDocumentMoniker": "Commands\\Character\\CharacterDisplay.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Commands\\Character\\CharacterDisplay.cs",
+              "RelativeToolTip": "Commands\\Character\\CharacterDisplay.cs",
+              "ViewState": "AgIAANoAAAAAAAAAAAAkwPIAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T11:22:10.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "userClaims.json",
+              "DocumentMoniker": "D:\\V6-Kesndria\\JSONsTest\\userClaims.json",
+              "RelativeDocumentMoniker": "JSONsTest\\userClaims.json",
+              "ToolTip": "D:\\V6-Kesndria\\JSONsTest\\userClaims.json",
+              "RelativeToolTip": "JSONsTest\\userClaims.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-04T15:44:57.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "userCharacterData.json",
+              "DocumentMoniker": "D:\\V6-Kesndria\\JSONsTest\\userCharacterData.json",
+              "RelativeDocumentMoniker": "JSONsTest\\userCharacterData.json",
+              "ToolTip": "D:\\V6-Kesndria\\JSONsTest\\userCharacterData.json",
+              "RelativeToolTip": "JSONsTest\\userCharacterData.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-04T15:44:50.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "presetEnemisDangion.json",
+              "DocumentMoniker": "D:\\V6-Kesndria\\JSONsTest\\presetEnemisDangion.json",
+              "RelativeDocumentMoniker": "JSONsTest\\presetEnemisDangion.json",
+              "ToolTip": "D:\\V6-Kesndria\\JSONsTest\\presetEnemisDangion.json",
+              "RelativeToolTip": "JSONsTest\\presetEnemisDangion.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-04T15:44:46.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Item.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Units\\Item.cs",
+              "RelativeDocumentMoniker": "Units\\Item.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Units\\Item.cs",
+              "RelativeToolTip": "Units\\Item.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBIAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T14:50:02.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CharacterDTO.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Units\\CharacterDTO.cs",
+              "RelativeDocumentMoniker": "Units\\CharacterDTO.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Units\\CharacterDTO.cs",
+              "RelativeToolTip": "Units\\CharacterDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T12:10:50.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ItemDropCollection.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Units\\ItemDropCollection.cs",
+              "RelativeDocumentMoniker": "Units\\ItemDropCollection.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Units\\ItemDropCollection.cs",
+              "RelativeToolTip": "Units\\ItemDropCollection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAChAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T14:52:18.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "presetDarkEnemis.json",
+              "DocumentMoniker": "D:\\V6-Kesndria\\JSONsTest\\presetDarkEnemis.json",
+              "RelativeDocumentMoniker": "JSONsTest\\presetDarkEnemis.json",
+              "ToolTip": "D:\\V6-Kesndria\\JSONsTest\\presetDarkEnemis.json",
+              "RelativeToolTip": "JSONsTest\\presetDarkEnemis.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAowL0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-02T11:07:09.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "presetEnemis.json",
+              "DocumentMoniker": "D:\\V6-Kesndria\\JSONsTest\\presetEnemis.json",
+              "RelativeDocumentMoniker": "JSONsTest\\presetEnemis.json",
+              "ToolTip": "D:\\V6-Kesndria\\JSONsTest\\presetEnemis.json",
+              "RelativeToolTip": "JSONsTest\\presetEnemis.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-02T20:20:17.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SaveLoadManager.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Managers\\SaveLoadManager.cs",
+              "RelativeDocumentMoniker": "Managers\\SaveLoadManager.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Managers\\SaveLoadManager.cs",
+              "RelativeToolTip": "Managers\\SaveLoadManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T09:55:27.924Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "darkSpownsData.json",
+              "DocumentMoniker": "D:\\V6-Kesndria\\JSONs\\darkSpownsData.json",
+              "RelativeDocumentMoniker": "JSONs\\darkSpownsData.json",
+              "ToolTip": "D:\\V6-Kesndria\\JSONs\\darkSpownsData.json",
+              "RelativeToolTip": "JSONs\\darkSpownsData.json",
+              "ViewState": "AgIAAIAGAAAAAAAAAAAowJ0GAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-04T14:38:46.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "MassageManager.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Managers\\MassageManager.cs",
+              "RelativeDocumentMoniker": "Managers\\MassageManager.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Managers\\MassageManager.cs",
+              "RelativeToolTip": "Managers\\MassageManager.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAgwEMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T11:49:59.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CharacterItems.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Commands\\Character\\CharacterItems.cs",
+              "RelativeDocumentMoniker": "Commands\\Character\\CharacterItems.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Commands\\Character\\CharacterItems.cs",
+              "RelativeToolTip": "Commands\\Character\\CharacterItems.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T14:50:29.997Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CharacterTrade.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Commands\\Character\\CharacterTrade.cs",
+              "RelativeDocumentMoniker": "Commands\\Character\\CharacterTrade.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Commands\\Character\\CharacterTrade.cs",
+              "RelativeToolTip": "Commands\\Character\\CharacterTrade.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T14:50:29.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Buff.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Units\\Buff.cs",
+              "RelativeDocumentMoniker": "Units\\Buff.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Units\\Buff.cs",
+              "RelativeToolTip": "Units\\Buff.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T14:49:37.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "HealthUpdateService.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\TasksManager\\HealthUpdateService.cs",
+              "RelativeDocumentMoniker": "TasksManager\\HealthUpdateService.cs",
+              "ToolTip": "D:\\V6-Kesndria\\TasksManager\\HealthUpdateService.cs",
+              "RelativeToolTip": "TasksManager\\HealthUpdateService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T14:47:33.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Units\\Enemy.cs",
+              "RelativeDocumentMoniker": "Units\\Enemy.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Units\\Enemy.cs",
+              "RelativeToolTip": "Units\\Enemy.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAiwFwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T09:10:42.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "EnemySpawnService.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\TasksManager\\EnemySpawnService.cs",
+              "RelativeDocumentMoniker": "TasksManager\\EnemySpawnService.cs",
+              "ToolTip": "D:\\V6-Kesndria\\TasksManager\\EnemySpawnService.cs",
+              "RelativeToolTip": "TasksManager\\EnemySpawnService.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAQwDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T11:04:53.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "DungeonService.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\TasksManager\\DungeonService.cs",
+              "RelativeDocumentMoniker": "TasksManager\\DungeonService.cs",
+              "ToolTip": "D:\\V6-Kesndria\\TasksManager\\DungeonService.cs",
+              "RelativeToolTip": "TasksManager\\DungeonService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAqwDkAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T10:51:50.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "BuffService.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\TasksManager\\BuffService.cs",
+              "RelativeDocumentMoniker": "TasksManager\\BuffService.cs",
+              "ToolTip": "D:\\V6-Kesndria\\TasksManager\\BuffService.cs",
+              "RelativeToolTip": "TasksManager\\BuffService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T20:12:30.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "StashService.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\TasksManager\\StashService.cs",
+              "RelativeDocumentMoniker": "TasksManager\\StashService.cs",
+              "ToolTip": "D:\\V6-Kesndria\\TasksManager\\StashService.cs",
+              "RelativeToolTip": "TasksManager\\StashService.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAwwDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T10:57:45.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "EnemyReminderService .cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\TasksManager\\EnemyReminderService .cs",
+              "RelativeDocumentMoniker": "TasksManager\\EnemyReminderService .cs",
+              "ToolTip": "D:\\V6-Kesndria\\TasksManager\\EnemyReminderService .cs",
+              "RelativeToolTip": "TasksManager\\EnemyReminderService .cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T10:57:16.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "CharacterDeletion.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Commands\\Character\\CharacterDeletion.cs",
+              "RelativeDocumentMoniker": "Commands\\Character\\CharacterDeletion.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Commands\\Character\\CharacterDeletion.cs",
+              "RelativeToolTip": "Commands\\Character\\CharacterDeletion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T11:22:09.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "MainGlobal.cs",
+              "DocumentMoniker": "D:\\V6-Kesndria\\Global\\MainGlobal.cs",
+              "RelativeDocumentMoniker": "Global\\MainGlobal.cs",
+              "ToolTip": "D:\\V6-Kesndria\\Global\\MainGlobal.cs",
+              "RelativeToolTip": "Global\\MainGlobal.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAuwNgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-02T10:48:42.087Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
