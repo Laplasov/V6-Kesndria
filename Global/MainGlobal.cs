@@ -1,5 +1,5 @@
 ﻿
-public static class MainGlobal
+public static class StringCollection
 {
     public static string jsonFilePath => "./JSONs/darkSpownsData.json";
     public static string jsonFilePathTierList => "./JSONs/userTopTierDark.json";

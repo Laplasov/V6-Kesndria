@@ -43,8 +43,8 @@ public class Wrapper
     {
         if (update == null) throw 
                 new ArgumentNullException(nameof(update), "Update cannot be null.");
-        if (update.CallbackQuery == null) throw
-                new ArgumentNullException(nameof(update.CallbackQuery), "CallbackQuery cannot be null.");
+        if (update.CallbackQuery == null) return;
+            //throw new ArgumentNullException(nameof(update.CallbackQuery), "CallbackQuery cannot be null.");
         if (update.CallbackQuery!.From == null) throw 
                 new ArgumentNullException(nameof(update.CallbackQuery.From), "CallbackQuery.From cannot be null.");
         if (update.CallbackQuery.Message == null) throw 

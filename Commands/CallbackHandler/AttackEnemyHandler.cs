@@ -122,11 +122,11 @@ public class AttackEnemyHandler
 
             if (buttonType == "Skill")
             {
-                if(character.UniqueSkill == null)
+                if(character.UniqueSkill == null || !haveRange)
                 {
                     Message msgNew6 = await BotServices.Instance.Bot.SendMessage(
                     callbackQuery.Message.Chat.Id,
-                    $"{character.Name}, У Вас нету навыка!",
+                    $"{character.Name}, У Вас нету навыка или Вы не можете использовать умение на врага ниже вашего уровня.",
                     messageThreadId: messageThreadId
                 );
 
@@ -136,69 +136,65 @@ public class AttackEnemyHandler
                 }
 
                 await character.UniqueSkill!.InitSkill(character, enemy, wrapper.ChatId, _random);
+
             }
 
             if (buttonType == "Simple")
             { 
 
-            bool IsPlayerAlive = await enemy.CalculateDamage(character, callbackQuery.Message.Chat.Id, _random);
+                var (IsPlayerAlive, EditEnemy) = await enemy.CalculateDamage(character, callbackQuery.Message.Chat.Id, _random);
+                enemy = EditEnemy;
 
-            if (!IsPlayerAlive)
-            {
-                enemy.PlayersID.Remove(userId);
-                character.CurrentHP = 1;
-
-                bool hasBuff = character.GetActiveBuffs().Any(buff => buff.Name == "Проклятье понижения здоровья");
-
-                if (!hasBuff)
+                if (!IsPlayerAlive)
                 {
-                    Buff healthReductionBuff = new Buff
+                    enemy.PlayersID.Remove(userId);
+                    character.CurrentHP = 1;
+
+                    bool hasBuff = character.GetActiveBuffs().Any(buff => buff.Name == "Проклятье понижения здоровья");
+
+                    if (!hasBuff)
                     {
-                        Name = "Проклятье понижения здоровья",
-                        ATKModifier = 0,
-                        HPModifier = -character.HP / 2,
-                        HPRegenModifier = 0,
-                        Duration = TimeSpan.FromMinutes(15),
-                        StartTime = DateTime.Now,
-                        Message = $"{userCharacterData[userId].Name}, Ваше здоровье было восстановлено после проклятия поражения!",
-                    };
+                        Buff healthReductionBuff = new Buff
+                        {
+                            Name = "Проклятье понижения здоровья",
+                            ATKModifier = 0,
+                            HPModifier = -character.HP / 2,
+                            HPRegenModifier = 0,
+                            Duration = TimeSpan.FromMinutes(15),
+                            StartTime = DateTime.Now,
+                            Message = $"{userCharacterData[userId].Name}, Ваше здоровье было восстановлено после проклятия поражения!",
+                        };
 
-                    character.ApplyBuff(healthReductionBuff);
+                        character.ApplyBuff(healthReductionBuff);
 
-                    Message msgNew4 = await BotServices.Instance.Bot.SendMessage(
+                        Message msgNew4 = await BotServices.Instance.Bot.SendMessage(
+                            callbackQuery.Message.Chat.Id,
+                            $"{character.Name} Вы пали от руки {enemy.Name}!\nАландрия вернула Вас к жизни, но у этого были последствия...\nНа следующие 15 минут Ваше здоровье понижено в двое, как и востановление здорлаья!\nВаше здоровье {character.CurrentHP} / {character.HP}",
+                            messageThreadId: messageThreadId
+                        );
+
+                        _ = Program.BuffsHandler(callbackQuery.Message.Chat.Id, messageThreadId, healthReductionBuff);
+
+                        _ = MassageDeleter(msgNew4, 30);
+                        _ = BotServices.Instance.Bot.AnswerCallbackQuery(callbackQueryId: callbackQuery!.Id, text:
+                        "☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️", cacheTime: 20, showAlert: true);
+                            return;
+                    }
+
+                    Message msgNew5 = await BotServices.Instance.Bot.SendMessage(
                         callbackQuery.Message.Chat.Id,
-                        $"{character.Name} Вы пали от руки {enemy.Name}!\nАландрия вернула Вас к жизни, но у этого были последствия...\nНа следующие 15 минут Ваше здоровье понижено в двое, как и востановление здорлаья!\nВаше здоровье {character.CurrentHP} / {character.HP}",
+                        $"{character.Name}, Вы уже пали в бою и Вам не хватает здоровья.\nВаше здоровье {character.CurrentHP} / {character.HP}",
                         messageThreadId: messageThreadId
                     );
 
-                    _ = Program.BuffsHandler(callbackQuery.Message.Chat.Id, messageThreadId, healthReductionBuff);
+                    _ = MassageDeleter(msgNew5, 30);
+                    _ = BotServices.Instance.Bot.AnswerCallbackQuery(wrapper.CallbackQueryId);
+                    return;
 
-                    _ = MassageDeleter(msgNew4, 30);
-                    _ = BotServices.Instance.Bot.AnswerCallbackQuery(callbackQueryId: callbackQuery!.Id, text: "" +
-                    "☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️\n" +
-                    "☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️\n" +
-                    "☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️\n" +
-                    "☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️\n" +
-                    "☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️\n" +
-                    "☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️\n" +
-                    "☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️☠️\n" +
-                    "", cacheTime: 20, showAlert: true);
-                        return;
                 }
 
-                Message msgNew5 = await BotServices.Instance.Bot.SendMessage(
-                    callbackQuery.Message.Chat.Id,
-                    $"{character.Name}, Вы уже пали в бою и Вам не хватает здоровья.\nВаше здоровье {character.CurrentHP} / {character.HP}",
-                    messageThreadId: messageThreadId
-                );
-
-                _ = MassageDeleter(msgNew5, 30);
-                _ = BotServices.Instance.Bot.AnswerCallbackQuery(wrapper.CallbackQueryId);
-                return;
-
             }
 
-            }
             string levelScoup = "";
 
             if (enemy.Level <= 5)
@@ -216,30 +212,19 @@ public class AttackEnemyHandler
                 $"Уровень: {enemy.Level}\n\n" +
                 $"{enemy.Caption}\n\n" +
                 $"Награда за победу: \n{enemy.EXP} Опыта\n{enemy.Gold} Золота\n\n" +
-                $"Враг для левела: {levelScoup}.";
+                $"Враг для левела: {levelScoup}.\n" +
+                $"Враг был атакован: {enemy.AttackIncrement++}."; 
 
             try
             {
-
-                if (enemy.HP > 0)
+                if (!EnemyPool.ContainsKey(enemyID))
                 {
-                    var sentMessage = await BotServices.Instance.Bot.EditMessageCaption(
-                    chatId: callbackQuery.Message.Chat.Id,
-                    messageId: enemy.MassageId,
-                    caption: newCaption,
-                    replyMarkup: callbackQuery.Message.ReplyMarkup
-                    );
-
-                    enemy.MassageId = sentMessage.MessageId;
+                    _ = BotServices.Instance.Bot.AnswerCallbackQuery(wrapper.CallbackQueryId);
+                    return; 
                 }
 
-                if (enemy.HP < 0)
+                if (enemy.HP <= 0)
                 {
-                    if (!EnemyPool.ContainsKey(enemyID))
-                    {
-                        _ = BotServices.Instance.Bot.AnswerCallbackQuery(wrapper.CallbackQueryId);
-                        return; 
-                    }
 
                     EnemyPool.Remove(enemyID);
                     _ = BotServices.Instance.Bot.AnswerCallbackQuery(wrapper.CallbackQueryId, "Решающий удар.");
@@ -326,7 +311,22 @@ public class AttackEnemyHandler
 
                         }
                     }
+
+                    return;
                 }
+                if (enemy.HP > 0)
+                {
+                    //if (newCaption != callbackQuery.Message.Caption) return;
+                    var sentMessage = await BotServices.Instance.Bot.EditMessageCaption(
+                    chatId: callbackQuery.Message.Chat.Id,
+                    messageId: enemy.MassageId,
+                    caption: newCaption,
+                    replyMarkup: callbackQuery.Message.ReplyMarkup
+                    );
+
+                    enemy.MassageId = sentMessage.MessageId;
+                }
+
             }
             catch (Exception e)
             {

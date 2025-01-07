@@ -16,6 +16,8 @@ public static class SaveLoadManager
 
         var characterData = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<long, Character>>(json);
 
+        foreach (var kvp in characterData!) 
+            kvp.Value.SetClassString();
 
 
         return characterData ?? new Dictionary<long, Character>();

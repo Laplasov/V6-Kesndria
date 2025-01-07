@@ -116,7 +116,7 @@ public class Character
     {
         _activeBuffs = new List<Buff>();
         CurrentSP = SP;
-        SetClassString();
+        //SetClassString();
     }
 
     public void SetClassString()
@@ -297,9 +297,10 @@ public class Character
         return totalBonus;
     }
 
-    public bool EquipItem(string itemName, Message msg)
+    public bool EquipItem(string itemName, int Quality, Message msg)
     {
-        Item? itemToEquip = Inventory.FirstOrDefault(item => item.Name.Equals(itemName, StringComparison.OrdinalIgnoreCase));
+        Item? itemToEquip = Inventory.FirstOrDefault(item =>
+            item.Name.Equals(itemName, StringComparison.OrdinalIgnoreCase) && item.Quality == Quality);
 
         if (itemToEquip == null)
             return false;
@@ -331,9 +332,11 @@ public class Character
         return true;
     }
 
-    public bool SellItem(string itemName, int salePrice)
+    public bool SellItem(string itemName, int Quality, int salePrice)
     {
-        Item? itemToSell = Inventory.FirstOrDefault(item => item.Name.Equals(itemName, StringComparison.OrdinalIgnoreCase));
+        Item? itemToSell = Inventory.FirstOrDefault(item =>
+            item.Name.Equals(itemName, StringComparison.OrdinalIgnoreCase) && item.Quality == Quality);
+
         if (itemToSell == null)
             return false;
 
@@ -424,11 +427,18 @@ public class Character
     public Task<string> GetInventoryItems()
     {
         var sortedInventory = Inventory.OrderBy(item => item.Type).ToList();
-        var result = string.Join("\n", sortedInventory.Select(item => $"{emojiMapItems[item.Type]} {item.Name}"));
+        var result = string.Join("\n", sortedInventory.Select(item => $"{emojiMapItems[item.Type]} {item.Name} + {item.Quality}"));
         return Task.FromResult(result);
     }
+    public string GetInventoryItemsSimple()
+    {
+        var sortedInventory = Inventory.OrderBy(item => item.Type).ToList();
+        return string.Join("\n", sortedInventory.Select(item => $"{emojiMapItems[item.Type]} {item.Name} + {item.Quality}"));
+    }
     public Task<string> GetEquippedItems() => Task.FromResult(string.Join("\n", EquippedItems.Select(item => item?.Name ?? "Пусто")));
-    public string GetEquippedItemsSimple() => string.Join("\n", EquippedItems.Select(item => item?.Name ?? "Пусто"));
+    //public string GetEquippedItemsSimple() => string.Join("\n", EquippedItems.Select(item => item?.Name + $" + {item?.Quality}" ?? "Пусто"));
+    public string GetEquippedItemsSimple() => string.Join("\n", EquippedItems.Select(item => item != null ? $"{item.Name} + {item.Quality}" : "Пусто"));
+    
 
     public Task RegenerateHealthAsync()
     {

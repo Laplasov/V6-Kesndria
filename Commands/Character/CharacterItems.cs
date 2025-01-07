@@ -4,6 +4,7 @@ using Telegram.Bot.Types;
 using Telegram.Bot;
 using static GlobalData;
 using static StringCollection;
+using System.Collections.Generic;
 public class CharacterItems
 {
 
@@ -16,8 +17,8 @@ public class CharacterItems
 
         if (wrapper.Type == UpdateType.Message)
         {
-            var list = await user.GetInventoryItems();
-            string items = $"Выберите предмет который Вы хотите использовать:\n{list}";
+            var list = user.GetInventoryItemsSimple();
+            string items = $"Выберите предмет который Вы хотите использовать или заточить:\n";
 
             Message msgNew = await BotServices.Instance.Bot.SendMessage(
                 chatId: wrapper.ChatId,
@@ -32,11 +33,20 @@ public class CharacterItems
         else if (wrapper.Type == UpdateType.CallbackQuery)
         {
             var inlineKeyboard = CreateInlineKeyboardList(user.Inventory);
-            string items = $"\nВыберите предмет который Вы хотите использовать:\n";
+
+            string equippedItemsString = user.GetEquippedItemsSimple();
+            string inventoryString = user.GetInventoryItemsSimple();
+
+            string items = 
+            $"🧥 Экипированные предметы:\n{equippedItemsString}\n\n" +
+            $"💼 Инвентарь:\n\n<blockquote expandable>{inventoryString}</blockquote>\n\n" +
+            $"Выберите предмет который Вы хотите использовать или заточить:\n\n";
+
             var media = new InputMediaPhoto
             {
                 Media = inventoryImage,
-                Caption = wrapper.OriginalMessage.Caption + items
+                Caption = items,
+                ParseMode = ParseMode.Html
             };
 
             await BotServices.Instance.Bot.EditMessageMedia(
@@ -54,10 +64,13 @@ public class CharacterItems
 
         var player = userCharacterData[wrapper.UserId];
         string itemName;
+        int itemQuality;
 
         if (wrapper.Type == UpdateType.Message)
         {
-            itemName = wrapper.Text;
+            var parts = wrapper.Text.Split(" + ");
+            itemName = parts[0];
+            itemQuality = int.Parse(parts[1]);
             _ = MassageDeleter(wrapper.OriginalMessage, 60);
         }
         else if (wrapper.Type == UpdateType.CallbackQuery)
@@ -75,17 +88,19 @@ public class CharacterItems
                 return;
             }
 
-            itemName = wrapper.Text;
+            var parts = wrapper.Text.Split(" + ");
+            itemName = parts[0];
+            itemQuality = int.Parse(parts[1]);
         }
         else return;
 
-        bool isUsed = player.EquipItem(itemName, wrapper.OriginalMessage);
+        bool isUsed = player.EquipItem(itemName, itemQuality, wrapper.OriginalMessage);
         string message;
 
         if (isUsed)
-            message = $"Предмет '{itemName}' удачно использован или надет.";
+            message = $"Предмет '{wrapper.Text}' удачно использован или надет.";
         else
-            message = $"Предмет '{itemName}' не найден или нельзя использовать!";
+            message = $"Предмет '{wrapper.Text}' не найден или нельзя использовать!";
 
         Message msgNew = await BotServices.Instance.Bot.SendMessage(
             chatId: wrapper.ChatId,
@@ -110,11 +125,19 @@ public class CharacterItems
 
             var user = userCharacterData[wrapper.UserId];
             var inlineKeyboard = CreateInlineKeyboardList(user.Inventory);
-            string items = $"\nВыберите предмет который Вы хотите продать:\n";
+
+            string equippedItemsString = user.GetEquippedItemsSimple();
+            string inventoryString = user.GetInventoryItemsSimple();
+            string items =
+            $"🧥 Экипированные предметы:\n{equippedItemsString}\n\n" +
+            $"💼 Инвентарь:\n\n<blockquote expandable>{inventoryString}</blockquote>\n\n" +
+            $"Выберите предмет который Вы хотите продать:\n\n";
+
             var media = new InputMediaPhoto
             {
                 Media = inventoryImage,
-                Caption = wrapper.OriginalMessage.Caption + items
+                Caption = items,
+                ParseMode = ParseMode.Html
             };
 
             await BotServices.Instance.Bot.EditMessageMedia(
@@ -146,9 +169,11 @@ public class CharacterItems
             }
             var player = userCharacterData[wrapper.UserId];
 
-            string itemName = wrapper.Text;
+            var parts = wrapper.Text.Split(" + ");
+            string itemName = parts[0];
+            int itemQuality = int.Parse(parts[1]);
 
-            bool IsUsed = player.SellItem(itemName, 15);
+            bool IsUsed = player.SellItem(itemName, itemQuality, 15);
             string message;
 
             if (IsUsed)
@@ -177,7 +202,8 @@ public class CharacterItems
 
         if (wrapper.Type == UpdateType.Message)
         {
-            var list = await user.GetEquippedItems();
+            var list = user.GetEquippedItemsSimple();
+
             string items = $"Выберите предмет который Вы хотите убрать в инвентарь:\n{list}";
 
             Message msgNew = await BotServices.Instance.Bot.SendMessage(
@@ -193,11 +219,14 @@ public class CharacterItems
         else if (wrapper.Type == UpdateType.CallbackQuery)
         {
             var inlineKeyboard = ItemsKeyboardEqiped;
-            string items = $"\nВыберите предмет который Вы хотите убрать в инвентарь:\n";
+            var list = user.GetEquippedItemsSimple();
+            string items = $"\nВыберите предмет который Вы хотите убрать в инвентарь:\n" +
+                $"<blockquote expandable>{list}</blockquote>\n\n";
             var media = new InputMediaPhoto
             {
                 Media = user.Image!,
-                Caption = wrapper.OriginalMessage.Caption + items
+                Caption = items,
+                ParseMode = ParseMode.Html
             };
 
             await BotServices.Instance.Bot.EditMessageMedia(
@@ -287,7 +316,7 @@ public class CharacterItems
             }
             foreach (var item in itemsToSell)
             {
-                player.SellItem(item.Name, 15);
+                player.SellItem(item.Name, item.Quality, 15);
             }
             string soldItems = string.Join("\n", itemsToSell.Select(item => item.Name));
             await BotServices.Instance.Bot.SendMessage(
@@ -301,10 +330,79 @@ public class CharacterItems
 
     }
 
+    public async Task UpgradeItem(Wrapper wrapper)
+    {
+        if (!wrapper.IsValid() || !userCharacterData.ContainsKey(wrapper.UserId))
+            return;
+
+        if (wrapper.Text == "back" && wrapper.CallbackQuery != null && wrapper.CallbackQueryId != null)
+        {
+            itemListToRemove.Remove(wrapper.UserId);
+            _ = BotServices.Instance.Bot.AnswerCallbackQuery(wrapper.CallbackQueryId);
+            _ = CharacterDisplay.ShowCharacterRefresh(wrapper.CallbackQuery);
+            return;
+        }
+
+        try
+        {
+            var player = userCharacterData[wrapper.UserId];
+
+            var parts = wrapper.Text.Split(" + ");
+            string itemName = parts[0];
+            int itemQuality = int.Parse(parts[1]);
+
+            var duplicateItems = player.Inventory
+            .Where(item => item.Name.Equals(itemName, StringComparison.OrdinalIgnoreCase) && item.Quality == itemQuality)
+            .ToList();
+
+            if (duplicateItems.Count >= 2 && duplicateItems[0].Quality < 3)
+            {
+                duplicateItems[0].AttackBonus += duplicateItems[1].AttackBonus;
+                duplicateItems[0].HealthBonus += duplicateItems[1].HealthBonus;
+                duplicateItems[0].HPRegenBonus += duplicateItems[1].HPRegenBonus;
+                duplicateItems[0].LuckBonus += duplicateItems[1].LuckBonus;
+                duplicateItems[0].ArmorBonus += duplicateItems[1].ArmorBonus;
+                duplicateItems[0].HPRestor += duplicateItems[1].HPRestor;
+                duplicateItems[0].SPRestor += duplicateItems[1].SPRestor;
+
+                duplicateItems[0].Quality += 1;
+
+                player.Inventory.Remove(duplicateItems[1]);
+
+                string message = $"Вы улучшили предмет '{itemName}'. Качество увеличено до '+ {duplicateItems[0].Quality}'.";
+                Message msgNew = await BotServices.Instance.Bot.SendMessage(
+                    chatId: wrapper.ChatId,
+                    text: message,
+                    messageThreadId: wrapper.MessageThreadId
+                );
+                _ = MassageDeleter(msgNew, 60);
+            }
+            else
+            {
+                string message = $"Недостаточно предметов '{itemName} + {itemQuality}' для улучшения или предмет уже достиг качества '+ 3'.";
+                Message msgNew = await BotServices.Instance.Bot.SendMessage(
+                    chatId: wrapper.ChatId,
+                    text: message,
+                    messageThreadId: wrapper.MessageThreadId
+                );
+                _ = MassageDeleter(msgNew, 60);
+            }
+            _ = CharacterDisplay.ShowCharacterRefresh(wrapper.CallbackQuery!);
+        }
+        catch (Exception e) 
+        { 
+            Console.WriteLine(e.ToString());
+        }
+    }
+
     private InlineKeyboardMarkup CreateInlineKeyboardList(List<Item> items)
     {
         var buttons = items.Select(item =>
-            InlineKeyboardButton.WithCallbackData(item?.Name ?? "Пусто", item?.Name ?? "Пусто")).ToArray();
+            InlineKeyboardButton.WithCallbackData(
+                item != null ? $"{item.Name} + {item.Quality}" : "Пусто",
+                item != null ? $"{item.Name} + {item.Quality}" : "Пусто"))
+            .ToArray();
+
         var rows = new List<InlineKeyboardButton[]>();
         for (int i = 0; i < buttons.Length; i += 2)
         {

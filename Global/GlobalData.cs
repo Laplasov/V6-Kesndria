@@ -90,22 +90,23 @@ public static class GlobalData
     {
         new[]
         {
-            InlineKeyboardButton.WithCallbackData("Использовать предмет", "use_item"),
-            InlineKeyboardButton.WithCallbackData("Снять предмет", "remove_equipment"),
+            InlineKeyboardButton.WithCallbackData("⬆️ Использовать предмет", "use_item"),
+            InlineKeyboardButton.WithCallbackData("⬇️ Снять предмет", "remove_equipment"),
         },
         new[]
         {
-            InlineKeyboardButton.WithCallbackData("Открыть магазин", "show_shop"),
-            InlineKeyboardButton.WithCallbackData("Продать предмет", "sell_shop"),
+            InlineKeyboardButton.WithCallbackData("🛒 Открыть магазин", "show_shop"),
+            InlineKeyboardButton.WithCallbackData("🏷️ Продать предмет", "sell_shop"),
         },
         new[]
         {
             InlineKeyboardButton.WithCallbackData("📖 Изменить класс", "change_class"),
-            InlineKeyboardButton.WithCallbackData("Продать весь хлам", "trash_sell"),
+            InlineKeyboardButton.WithCallbackData("🗑️ Продать весь хлам", "trash_sell"),
         },
         new[]
         {
-            InlineKeyboardButton.WithCallbackData("Назад", "back"),
+            InlineKeyboardButton.WithCallbackData("💥 Заточить предмет", "upgrade_item"),
+            InlineKeyboardButton.WithCallbackData("↩️ Назад", "back"),
         }
     }
     );

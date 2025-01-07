@@ -20,13 +20,16 @@ public class EnemySpawnService : IEnemySpawnService
         while (!_cancellationToken.IsCancellationRequested)
         {
 
-            _ = Task.Run(() => EnemyUpdate(10, 15, TimeSpan.FromMinutes(delayDefeat), null, null));
+            _ = Task.Run(() => EnemyUpdate(11, 15, TimeSpan.FromMinutes(delayDefeat), null, null));
+            _ = Task.Run(() => EnemyUpdate(1, 5, TimeSpan.FromMinutes(delayDefeat), null, null));
             await Task.Delay(TimeSpan.FromMinutes(delayBetween), _cancellationToken);
 
-            _ = Task.Run(() => EnemyUpdate(10, 15, TimeSpan.FromMinutes(delayDefeat), null, null));
+            _ = Task.Run(() => EnemyUpdate(11, 15, TimeSpan.FromMinutes(delayDefeat), null, null));
+            _ = Task.Run(() => EnemyUpdate(1, 5, TimeSpan.FromMinutes(delayDefeat), null, null));
             await Task.Delay(TimeSpan.FromMinutes(delayBetween), _cancellationToken);
 
-            _ = Task.Run(() => EnemyUpdate(10, 15, TimeSpan.FromMinutes(delayDefeat), null, null));
+            _ = Task.Run(() => EnemyUpdate(11, 15, TimeSpan.FromMinutes(delayDefeat), null, null));
+            _ = Task.Run(() => EnemyUpdate(1, 5, TimeSpan.FromMinutes(delayDefeat), null, null));
             await Task.Delay(TimeSpan.FromMinutes(delayBetween), _cancellationToken);
         }
     }

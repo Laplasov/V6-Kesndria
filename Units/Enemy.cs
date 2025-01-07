@@ -24,6 +24,7 @@ public class Enemy
     public int LastRemainder { get; set; }
     public ClassType? ClassTypeEnum { get; set; }
     public string ClassName { get; set; }
+    public int AttackIncrement { get; set; } = 0;
 
     public List<Skill> ActiveSkills { get; set; } = new List<Skill>();
     private List<Skill> clonedSkills { get; set; } = new List<Skill>();
@@ -44,9 +45,10 @@ public class Enemy
         Gold = gold;
         Caption = caption;
         Armor = armor;
+        AttackIncrement = 0;
     }
 
-    async public Task<bool> CalculateDamage(Character player, long id, Random random)
+    async public Task<(bool IsPlayerAlive, Enemy EditEnemy)> CalculateDamage(Character player, long id, Random random)
     {
         string AddString = "";
         float CurrentPercentageEffect = ClassValue(player);
@@ -62,11 +64,12 @@ public class Enemy
                 CurrentDamageEnemy = currentDamage;
                 AddString += message;
             }
+        var CurrentDamageEnemyMax = Math.Max(CurrentDamageEnemy, 0);
 
-        player.CurrentHP -= Math.Max(CurrentDamageEnemy, 0);
+        player.CurrentHP -= CurrentDamageEnemyMax;
 
         if (player.CurrentHP <= 0)
-            return false;
+            return (false, this);
 
         int CurrentDamagePlayer = (int)(player.ATK + (player.ATK * CurrentPercentageEffect)) - Armor;
 
@@ -82,8 +85,9 @@ public class Enemy
             $"Противник {Name} \nКласс: {ClassName}\n\n" +
             $"Разница класса {(int)(CurrentPercentageEffect * 100)}%\n" +
             $"Нанесено урона - {crit}\n" +
-            $"Получено урона - {CurrentDamageEnemy}\n\n" +
-            $"Ваше здоровье: \n{player.CurrentHP} / {player.HP}";
+            $"Получено урона - {CurrentDamageEnemyMax}\n\n" +
+            $"Ваше здоровье: \n{player.CurrentHP} / {player.HP}\n" +
+            $"Здоровье врага: \n{HP} / {MaxHP}";
 
 
         Message msg = await BotServices.Instance.Bot.SendMessage(
@@ -91,7 +95,7 @@ public class Enemy
             text: messageBase + AddString);
 
         _ = MassageDeleter(msg, 10);
-        return true;
+        return (true, this);
     }
 
     public void GetClassStringEnemy()

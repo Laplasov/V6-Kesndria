@@ -75,6 +75,12 @@ public class UpdateManager
                     await classShop.ChoseClass(nextWrapper);
                     });
             } },
+            { "upgrade_item", async (wrapper) => {await characterItems.UseItem(wrapper);
+                SetNextCommand(wrapper.UserId, async (nextWrapper) => {
+                    await characterItems.UpgradeItem(nextWrapper); 
+                    });
+                }
+            },
             { "trash_sell", async (wrapper) => await characterItems.SellAllTrash(wrapper) },
             { "back", async (wrapper) => await characterDisplay.ShowCharacterRefreshProxy(wrapper) },
             { "show_inventory", async (wrapper) => await characterDisplay.ShowInventoryEdit(wrapper) },

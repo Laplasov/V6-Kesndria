@@ -22,6 +22,8 @@ public class Item
     public int? HPRestor { get; set; } = 0;
     public int? SPRestor { get; set; } = 0;
 
+    public int Quality { get; set; } = 0;
+
     public Item(string name, string description, ItemType type, Buff? buff, string messageOnUse, int attackBonus, int healthBonus, int hpRegenBonus, int luckBonus, int armorBonus)
     {
         Name = name;
@@ -34,5 +36,6 @@ public class Item
         HPRegenBonus = hpRegenBonus;
         LuckBonus = luckBonus;
         ArmorBonus = armorBonus;
+        Quality = 0;
     }
 }

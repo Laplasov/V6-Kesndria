@@ -40,14 +40,17 @@ public class EnemyReminderService : IEnemyReminderService
                             );
                         }
 
-                        var sentMessage = await BotServices.Instance.Bot.SendMessage(
-                            chatId: m_mainChat,
-                            text: reminderMessage,
-                            replyParameters: enemy.MassageId,
-                            parseMode: ParseMode.Markdown
-                        );
+                        if (enemy.HP > 0) 
+                        {
+                            var sentMessage = await BotServices.Instance.Bot.SendMessage(
+                                chatId: m_mainChat,
+                                text: reminderMessage,
+                                replyParameters: enemy.MassageId,
+                                parseMode: ParseMode.Markdown
+                            );
 
-                        enemy.LastRemainder = sentMessage.MessageId;
+                            enemy.LastRemainder = sentMessage.MessageId; 
+                        }
 
                     }
                     catch (Exception ex)

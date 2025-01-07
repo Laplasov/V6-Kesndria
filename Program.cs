@@ -13,7 +13,7 @@ class Program
     {
         Env.Load();
 
-        string token = Env.GetString("DEV_BOT");
+        string token = Env.GetString("TOKEN");
 
         InitializeDataStructures();
 

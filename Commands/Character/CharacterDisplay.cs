@@ -73,8 +73,7 @@ public class CharacterDisplay
             bool captionChanged = callbackQuery.Message.Caption != cap;
             bool mediaChanged = callbackQuery.Message.Photo?.FirstOrDefault()?.FileId != character.Image;
 
-            if (captionChanged || mediaChanged)
-            
+            if (mediaChanged)
               {
                 msg1 = await BotServices.Instance.Bot.EditMessageMedia(
                 chatId: chatId,
@@ -82,7 +81,18 @@ public class CharacterDisplay
                 media: media,
                 replyMarkup: MenuKeyboard
             );
-            } else msg1 = callbackQuery.Message;
+            } 
+            else if (captionChanged) 
+            {
+                msg1 = await BotServices.Instance.Bot.EditMessageCaption(
+                chatId: chatId,
+                messageId: messageId,
+                caption: cap,
+                replyMarkup: MenuKeyboard,
+                parseMode: ParseMode.Html
+            );
+            }
+            else msg1 = callbackQuery.Message;
 
         }
         _ = BotServices.Instance.Bot.AnswerCallbackQuery(callbackQuery.Id);
@@ -127,7 +137,7 @@ public class CharacterDisplay
     {
         if (msg?.From?.Id == null) return;
         var user = userCharacterData[msg.From.Id];
-        var items = await user.GetInventoryItems();
+        var items = user.GetInventoryItemsSimple();
 
         var text = $"{user.Name}\nВаш инвентарь: \n{items}";
         Message msgNew = await BotServices.Instance.Bot.SendMessage(msg.Chat.Id, text, messageThreadId: msg.MessageThreadId);
@@ -138,7 +148,7 @@ public class CharacterDisplay
     {
         if (msg?.From?.Id == null) return;
         var user = userCharacterData[msg.From.Id];
-        var items = await user.GetEquippedItems();
+        var items = user.GetEquippedItemsSimple();
 
         var text = $"{user.Name}\nВаша экипировка: \n{items}";
         Message msgNew = await BotServices.Instance.Bot.SendMessage(msg.Chat.Id, text, messageThreadId: msg.MessageThreadId);
@@ -182,8 +192,8 @@ public class CharacterDisplay
         {
             var character = userCharacterData[userId];
 
-            string equippedItemsString = await character.GetEquippedItems();
-            string inventoryString = await character.GetInventoryItems();
+            string equippedItemsString = character.GetEquippedItemsSimple();
+            string inventoryString = character.GetInventoryItemsSimple();
 
             await BotServices.Instance.Bot.EditMessageCaption(
                 chatId: wrapper.ChatId,
