@@ -34,6 +34,7 @@ public class Character
     public List<Item> Inventory { get; set; } = new List<Item>();
 
     public Skill? UniqueSkill { get; set; }
+    public Occupation OccupationPlayer { get; set; } = new Occupation();
 
     public int REGEN_HP
     {
@@ -180,7 +181,7 @@ public class Character
             ClassType = this.ClassType,
             EquippedItems = this.EquippedItems,
             Inventory = this.Inventory,
-
+            OccupationPlayer = this.OccupationPlayer,
         };
 
     }
@@ -236,7 +237,21 @@ public class Character
         return (exp, gold);
     }
 
-    public void AddItemToInventory(Item item) => Inventory.Add(item);
+    public void AddItemToInventory(Item item)
+    {
+        if (Inventory.Count < 40)
+            Inventory.Add(item);
+        else
+        {
+            if (UserID == null) return;
+            long userId = UserID.Value;
+
+            if (!userStorage.ContainsKey(userId))
+                userStorage[userId] = new List<Item>();
+
+            userStorage[userId].Add(item);
+        }
+    }
 
     public void ApplyBuff(Buff buff)
     {
@@ -433,7 +448,10 @@ public class Character
     public string GetInventoryItemsSimple()
     {
         var sortedInventory = Inventory.OrderBy(item => item.Type).ToList();
-        return string.Join("\n", sortedInventory.Select(item => $"{emojiMapItems[item.Type]} {item.Name} + {item.Quality}"));
+        var items = string.Join("\n", sortedInventory.Select(item => $"{emojiMapItems[item.Type]} {item.Name} + {item.Quality}"));
+        if (items.Length > 750)
+            items = items.Substring(0, 750) + "...";
+        return items;
     }
     public Task<string> GetEquippedItems() => Task.FromResult(string.Join("\n", EquippedItems.Select(item => item?.Name ?? "Пусто")));
     //public string GetEquippedItemsSimple() => string.Join("\n", EquippedItems.Select(item => item?.Name + $" + {item?.Quality}" ?? "Пусто"));

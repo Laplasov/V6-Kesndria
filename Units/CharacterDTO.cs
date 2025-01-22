@@ -22,6 +22,6 @@
     public ClassType ClassType { get; set; }
     public Item?[] EquippedItems { get; set; } = new Item[3];
     public List<Item> Inventory { get; set; } = new List<Item>();
-
+    public Occupation OccupationPlayer { get; set; } = new Occupation();
 
 }

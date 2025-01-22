@@ -92,5 +92,27 @@ public static class SaveLoadManager
         }
 
     }
+
+    public static async Task SaveUserStorageAsync()
+    {
+        var json = Newtonsoft.Json.JsonConvert.SerializeObject(userStorage, new JsonSerializerSettings
+        {
+            TypeNameHandling = Newtonsoft.Json.TypeNameHandling.Auto
+        });
+
+        await System.IO.File.WriteAllTextAsync(jsonUserStorage, json);
+    }
+
+    public static async Task LoadUserStorageAsync()
+    {
+        if (!System.IO.File.Exists(jsonUserStorage))
+            userStorage = new Dictionary<long, List<Item>>();
+
+        var json = await System.IO.File.ReadAllTextAsync(jsonUserStorage);
+
+        var userStorageHolder = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<long, List<Item>>>(json);
+        userStorage = userStorageHolder!;
+
+    }
 }
 

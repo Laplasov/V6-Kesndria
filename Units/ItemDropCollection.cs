@@ -26,17 +26,68 @@ public class ItemDropCollection
         //{ 21, new Item("Меч Пустоты", "Меч, который поглощает свет и душу врагов.", ItemType.Weapon, null, "Вы вооружены мечом Пустоты.", 75, 0, 0f, 0, 0) },
         //{ 22, new Item("Броня Космического Странника", "Броня, сделанная из космической материи.", ItemType.Armor, null, "Вы облачены в броню космического странника.", 0, 200, 0f, 0, 0) },
         };
+    private static List<Item> minerItems = new List<Item>
+            {
+                new Item("Сияющий Рудник", "Редкая руда, сверкающая загадочным светом.", ItemType.Ore, null, "Вы можете продать эту руду за хорошую цену.", 0, 0, 0, 0, 0),
+                new Item("Кровавый Камень", "Глубокий красный камень, излучающий тепло.", ItemType.Ore, null, "Вы можете продать этот камень за хорошую цену.", 0, 0, 0, 0, 0),
+                new Item("Слеза Отздарвы", "Напоминает черную каплю, издает загадочные скрежет.", ItemType.Ore, null, "Вы можете продать этот камень за хорошую цену.", 0, 0, 0, 0, 0),
+                new Item("Мох Голгофы", "Камень переливает зеленым и вызывает головокружение.", ItemType.Ore, null, "Вы можете продать этот камень за хорошую цену.", 0, 0, 0, 0, 0),
+                new Item("Восковая память", "Белый мягкий металл, обладает магнитными свойствами.", ItemType.Ore, null, "Вы можете продать этот камень за хорошую цену.", 0, 0, 0, 0, 0),
+            };
+    private static List<Item> herbalistItems = new List<Item>
+            {
+                new Item("Мистическая Трава", "Редкая трава, известная своими целебными свойствами.", ItemType.Herb, null, "Используется для создания зелья, увеличивающего физическую силу.", 0, 0, 0, 0, 0),
+                new Item("Лунный Цветок", "Цветок, который распускается только в полнолуние, излучая мягкий свет.", ItemType.Herb, null, "Используется для создания зелья, увеличивающего магическую силу.", 0, 0, 0, 0, 0),
+                new Item("Трава Снов", "Трава, которая вызывает яркие сны, когда ее нюхают.", ItemType.Herb, null, "Используется для создания зелья, увеличивающего защиту.", 0, 0, 0, 0, 0),
+                new Item("Кровавый Лист", "Лист, который кажется пропитанным кровью, но обладает целебными свойствами.", ItemType.Herb, null, "Используется для создания зелья, восстанавливающего здоровье.", 0, 0, 0, 0, 0),
+                new Item("Звездная Пыльца", "Пыльца, собранная с цветков, растущих под звездами, придающая силе.", ItemType.Herb, null, "Используется для создания зелья, увеличивающего удачу.", 0, 0, 0, 0, 0),
+            };
+    private static List<Item> scavengerItems = new List<Item>
+            {
+                new Item("Сушильный шест", "Очень длинный меч, использовался учениками одной из древних школ боевых искусств.", ItemType.Weapon, null, "Вы можете использовать этот реликт как оружие.", 15, 0, 0, 0, 0),
+                new Item("Изношенный Кинжал", "Простой кинжал, который видел лучшие времена, но все еще острый.", ItemType.Weapon, null, "Вы готовы к быстрой атаке с Изношенным Кинжалом.", 20, 0, 0, 0, 0),
+                new Item("Броня Забытого", "Легкая броня, сделанная из собранных материалов, обеспечивающая хорошую защиту.", ItemType.Armor, null, "Вы облачены в Броню Забытого, чувствуя себя более защищенным.", 0, 0, 0, 0, 25),
+           };
 
 
     public Item CreateRandomItem(int enemyLevel, Random random)
     {
         var availableItems = _itemDropTable
-        .Where(minLevel => minLevel.Key < enemyLevel) 
-        .Select(minLevel => minLevel.Value)
-        .ToList();
+            .Where(minLevel => minLevel.Key < enemyLevel) 
+            .Select(minLevel => minLevel.Value)
+            .ToList();
 
         int randomIndex = random.Next(availableItems.Count);
         return availableItems[randomIndex];
 
+    }
+
+    public static string CreateRewardItem(Character player, int times)
+    {
+        List<Item> items = new List<Item>();
+        var random = new Random();
+        string holder = "";
+        switch (player.OccupationPlayer.CurrentJob)
+        {
+            case JobType.Miner:
+                items = minerItems;
+                break;
+            case JobType.Herbalist:
+                items = herbalistItems;
+                break;
+            case JobType.Scavenger:
+                items = scavengerItems;
+                break;
+            default:
+                return "Нет предметов для сбора.";
+        }
+        for (int i = 0; i < times; i++)
+        {
+            var item = items[random.Next(items.Count)];
+            item.Quality = 0;
+            player.AddItemToInventory(item);
+            holder += $"{item.Name}\n";
+        }
+        return holder;
     }
 }

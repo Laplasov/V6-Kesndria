@@ -52,6 +52,7 @@ public static class GlobalData
     public static List<long> itemListToRemove = new List<long>();
     public static List<long> dangionList = new List<long>();
     public static List<long> itemListToSell = new List<long>();
+    public static Dictionary<long, List<Item>> userStorage = new Dictionary<long, List<Item>>();
 
     public static CancellationToken СancellationTokenGlobal;
     public static JsonDocument? JsonOldDocument;
@@ -75,13 +76,14 @@ public static class GlobalData
         },
         new[]
         {
-            InlineKeyboardButton.WithCallbackData("Показать мои ауры", "show_auras"),
+            InlineKeyboardButton.WithCallbackData("Досуг", "leisure"),
+            InlineKeyboardButton.WithCallbackData("Мои ауры", "show_auras"),
             InlineKeyboardButton.WithCallbackData("Обновить имя", "refresh_name"),
         },
         new[]
         {
-            InlineKeyboardButton.WithCallbackData("Закрыть", "close_hero"),
             InlineKeyboardButton.WithCallbackData("Обновить", "back"),
+            InlineKeyboardButton.WithCallbackData("Закрыть", "close_hero"),
         }
     }
     );
@@ -151,6 +153,46 @@ public static class GlobalData
         }
     }
     );
+    public static InlineKeyboardMarkup LeisureKeyboard = new InlineKeyboardMarkup(new[]
+    {
+        new[]
+        {
+            InlineKeyboardButton.WithCallbackData("Внести в хранилище", "storage"),
+            InlineKeyboardButton.WithCallbackData("Заняться работой", "job_selection"),
+        },
+        new[]
+        {
+            InlineKeyboardButton.WithCallbackData("Бросить работу", "stop_job"),
+            InlineKeyboardButton.WithCallbackData("Назад", "back"),
+        },
+
+    });
+    public static InlineKeyboardMarkup StorageKeyboard = new InlineKeyboardMarkup(new[]
+    {
+        new[]
+        {
+            InlineKeyboardButton.WithCallbackData("Внести", "give_storage"),
+            InlineKeyboardButton.WithCallbackData("Назад", "back"),
+        },
+    });
+    public static InlineKeyboardMarkup SelectJobInlineKeyboard = new InlineKeyboardMarkup(new[]
+    {
+        new[]
+        {
+            InlineKeyboardButton.WithCallbackData("Встать на дозор", "@job_Guard"),
+            InlineKeyboardButton.WithCallbackData("Пойти в академию", "@job_Study"),
+        },
+        new[]
+        {
+            InlineKeyboardButton.WithCallbackData("Собрать трав", "@job_Herbalist"),
+            InlineKeyboardButton.WithCallbackData("Уйти в шахты", "@job_Miner"),
+        },
+        new[]
+        {
+            InlineKeyboardButton.WithCallbackData("Назад", "back"),
+        },
+    });
+
     public static async Task MassageDeleter(Message msg, int sec)
     {
   

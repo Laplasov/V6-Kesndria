@@ -39,7 +39,7 @@ public class CharacterItems
 
             string items = 
             $"🧥 Экипированные предметы:\n{equippedItemsString}\n\n" +
-            $"💼 Инвентарь:\n\n<blockquote expandable>{inventoryString}</blockquote>\n\n" +
+            $"💼 Инвентарь: [{user.Inventory.Count}/40]\n\n<blockquote expandable>{inventoryString}</blockquote>\n\n" +
             $"Выберите предмет который Вы хотите использовать или заточить:\n\n";
 
             var media = new InputMediaPhoto
@@ -130,7 +130,7 @@ public class CharacterItems
             string inventoryString = user.GetInventoryItemsSimple();
             string items =
             $"🧥 Экипированные предметы:\n{equippedItemsString}\n\n" +
-            $"💼 Инвентарь:\n\n<blockquote expandable>{inventoryString}</blockquote>\n\n" +
+            $"💼 Инвентарь: [{user.Inventory.Count}/40]\n\n<blockquote expandable>{inventoryString}</blockquote>\n\n" +
             $"Выберите предмет который Вы хотите продать:\n\n";
 
             var media = new InputMediaPhoto
@@ -177,9 +177,9 @@ public class CharacterItems
             string message;
 
             if (IsUsed)
-                message = $"Предмет {itemName} удачно продан.";
+                message = $"Предмет {itemName} + {itemQuality} удачно продан.";
             else
-                message = $"Предмет {itemName} не найден!";
+                message = $"Предмет {itemName} + {itemQuality} не найден!";
 
             Message msgNew = await BotServices.Instance.Bot.SendMessage(
                 chatId: wrapper.ChatId,
@@ -318,7 +318,7 @@ public class CharacterItems
             {
                 player.SellItem(item.Name, item.Quality, 15);
             }
-            string soldItems = string.Join("\n", itemsToSell.Select(item => item.Name));
+            string soldItems = string.Join("\n", itemsToSell.Select(item => $"{item.Name} + {item.Quality}"));
             await BotServices.Instance.Bot.SendMessage(
                 chatId: wrapper.ChatId,
                 text: $"Вы успешно продали следующие предметы:\n{soldItems}",
@@ -369,7 +369,7 @@ public class CharacterItems
 
                 player.Inventory.Remove(duplicateItems[1]);
 
-                string message = $"Вы улучшили предмет '{itemName}'. Качество увеличено до '+ {duplicateItems[0].Quality}'.";
+                string message = $"Вы улучшили предмет '{itemName}'.\n Качество увеличено до '+ {duplicateItems[0].Quality}'.";
                 Message msgNew = await BotServices.Instance.Bot.SendMessage(
                     chatId: wrapper.ChatId,
                     text: message,

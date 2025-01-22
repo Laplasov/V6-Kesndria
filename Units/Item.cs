@@ -5,7 +5,9 @@ public enum ItemType
     Armor,
     Potion,
     Accessory,
-    ForSell
+    ForSell,
+    Herb,
+    Ore,
 }
 public class Item
 {

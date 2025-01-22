@@ -17,6 +17,7 @@ public class UpdateManager
     private DungeonsHandler dungeonsHandler;
     private StoryHandler storyHandler;
     private ClassShop classShop;
+    private CharacterLeisure characterLeisure;
 
     public UpdateManager()
     {
@@ -30,6 +31,8 @@ public class UpdateManager
         dungeonsHandler = new DungeonsHandler();
         storyHandler = new StoryHandler();
         classShop = new ClassShop();
+        characterLeisure = new CharacterLeisure();
+
 
         callbackActionsRich = new Dictionary<string, Func<Wrapper, Task>> 
         {
@@ -37,6 +40,9 @@ public class UpdateManager
             { "@attack", async (wrapper) => await attackEnemyHandler.EnqueueAttackEnemy(wrapper)},
             { "@attackDangion", async (wrapper) => await attackEnemyHandler.EnqueueAttackEnemy(wrapper) },
             { "@dangion", async (wrapper) => await dungeonsHandler.DungeonsManage(wrapper) },
+            { "@store", async (wrapper) => await characterLeisure.WaitingForItem(wrapper) },
+            { "@job", async (wrapper) => await characterLeisure.HandleJobSelection(wrapper) },
+            { "@jobDuration", async (wrapper) => await characterLeisure.HandleDurationSelection(wrapper) },
         };
 
         callbackActions = new Dictionary<string, Func<Wrapper, Task>>
@@ -81,12 +87,16 @@ public class UpdateManager
                     });
                 }
             },
+            { "leisure", async (wrapper) => await characterLeisure.Leisure(wrapper) },
+            { "storage", async (wrapper) => await characterLeisure.StoreItem(wrapper)},
+            { "job_selection", async (wrapper) => await characterLeisure.SelectJob(wrapper) },
+            { "stop_job", async (wrapper) => await characterLeisure.StopJob(wrapper)},
+            { "close_hero", async (wrapper) => await characterDisplay.CloseHero(wrapper) },
             { "trash_sell", async (wrapper) => await characterItems.SellAllTrash(wrapper) },
             { "back", async (wrapper) => await characterDisplay.ShowCharacterRefreshProxy(wrapper) },
             { "show_inventory", async (wrapper) => await characterDisplay.ShowInventoryEdit(wrapper) },
             { "refresh_name", async (wrapper) => await characterCreation.RefreshName(wrapper) },
             { "show_auras", async (wrapper) => await characterDisplay.ShowBuffs(wrapper) },
-            { "close_hero", async (wrapper) => await characterDisplay.CloseHero(wrapper) },
             { "ACT_1_yes_CHOSE_1", async (wrapper) => await storyHandler.yes_ACT_1_CHOSE_1(wrapper) },
             { "ACT_1_no_CHOSE_1", async (wrapper) => await storyHandler.no_ACT_1_CHOSE_1(wrapper) },
             { "ACT_1_yes_CHOSE_2", async (wrapper) => await storyHandler.yes_ACT_1_CHOSE_2(wrapper) },

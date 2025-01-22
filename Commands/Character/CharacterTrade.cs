@@ -129,13 +129,22 @@ public class CharacterTrade
     {
         if (msg.From == null || msg.Text == null) throw new ArgumentNullException(nameof(msg));
 
+        var parts = msg.Text.Split('+');
+        bool hasQuality = parts.Length == 2;
+        Item? itemToTransfer = null;
 
-        var itemToTransfer = playerFrom.Inventory.FirstOrDefault(item => item.Name.Equals(msg.Text, StringComparison.OrdinalIgnoreCase));
-        if (itemToTransfer == null)
+        if (hasQuality)
+        {
+            int.TryParse(parts[1].Trim(), out int quality);
+            itemToTransfer = playerFrom.Inventory.FirstOrDefault(item =>
+                item.Name.Equals(parts[0].Trim(), StringComparison.OrdinalIgnoreCase) && item.Quality == quality);
+        }
+
+        if (itemToTransfer == null || !hasQuality)
         {
             Message msgNew = await BotServices.Instance.Bot.SendMessage(
                 chatId: msg.Chat.Id,
-                text: "Пожалуйста, введите корректное количество золота или название предмета. ",
+                text: "Пожалуйста, введите корректное количество золота или название предмета. \n У предмета должно быть указано качество: [предмет] + [качество]",
                 messageThreadId: msg.MessageThreadId
             );
             tradeListID.Remove(msg.From.Id);
@@ -148,7 +157,7 @@ public class CharacterTrade
 
         await BotServices.Instance.Bot.SendMessage(
             chatId: msg.Chat.Id,
-            text: $"{playerFrom.Name} успешно передал(а) предмет '{itemToTransfer.Name}' игроку {playerTo.Name}.",
+            text: $"{playerFrom.Name} успешно передал(а) предмет '{itemToTransfer.Name} + {itemToTransfer.Quality}' игроку {playerTo.Name}.",
             messageThreadId: msg.MessageThreadId
         );
         tradeListID.Remove(msg.From.Id);

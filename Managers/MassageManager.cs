@@ -2,6 +2,7 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using static GlobalData;
 using static StringCollection;
+using static System.Net.Mime.MediaTypeNames;
 
 public class MassageManager
 {
@@ -10,6 +11,7 @@ public class MassageManager
     private CharacterDisplay characterDisplay;
     private CharacterTrade characterTrade;
     private CharacterItems characterItems;
+    private CharacterLeisure characterLeisure;
     private StaffZone staffZone;
     private ShopKeeper shopKeeper;
     private Dictionary<string, Func<Wrapper, Task>> commandActions;
@@ -24,6 +26,7 @@ public class MassageManager
         shopKeeper = new ShopKeeper();
         characterTrade = new CharacterTrade();
         characterItems = new CharacterItems();
+        characterLeisure = new CharacterLeisure();
 
         commandActions = new Dictionary<string, Func<Wrapper, Task>>
         {
@@ -71,7 +74,8 @@ public class MassageManager
             { "Показать статистику", async (wrapper) => await characterDisplay.ShowTierList(wrapper.OriginalMessage, wrapper.Type) },
             { "Показать мой ID", async (wrapper) => await characterDisplay.ShowID(wrapper.OriginalMessage, wrapper.Type) },
             { "Показать здоровье", async (wrapper) => await characterDisplay.ShowHP(wrapper.OriginalMessage, wrapper.Type) },
-            { "Показать мои ауры", async (wrapper) => await characterDisplay.ShowBuffs(wrapper) }
+            { "Показать мои ауры", async (wrapper) => await characterDisplay.ShowBuffs(wrapper) },
+            { "@Забрать", async (wrapper) => await characterLeisure.RetrieveItem(wrapper) }
         };
 
     }
@@ -89,8 +93,14 @@ public class MassageManager
 
         if (userCharacterData.ContainsKey(msg.From.Id))
             _ = CharacterManager.UpdateEXP(userCharacterData[msg.From.Id], msg);
+        string msgText = msg.Text;
 
         var wrappedMSG = new Wrapper(msg, type);
+
+        if (msgText.StartsWith("@"))
+        {
+            msgText = msgText.Substring(0, msgText.IndexOf(" "));
+        }
 
         if (nextCommand.TryGetValue(msg.From.Id, out var nextAction))
         {
@@ -99,7 +109,7 @@ public class MassageManager
             return;
         }
         
-        if (commandActions.TryGetValue(msg.Text, out var action))
+        if (commandActions.TryGetValue(msgText, out var action))
         {
             _ = action(wrappedMSG);
             return; 

@@ -97,6 +97,7 @@ class Program
         await LoadTopTierAsync();
         await LoadEnemiesPrests();
         await claimTracker.LoadClaimsFromJson();
+        await LoadUserStorageAsync();
     }
 
     static async Task SaveJSON()
@@ -104,6 +105,7 @@ class Program
         await SaveCharacterDataAsync(userCharacterData, jsonFilePath);
         await SaveTopTierAsync();
         await claimTracker.SaveClaimsToJson();
+        await SaveUserStorageAsync();
     }
    
 

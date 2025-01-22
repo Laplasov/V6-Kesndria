@@ -71,7 +71,7 @@ public class CharacterDisplay
             };
 
             bool captionChanged = callbackQuery.Message.Caption != cap;
-            bool mediaChanged = callbackQuery.Message.Photo?.FirstOrDefault()?.FileId != character.Image;
+            bool mediaChanged = callbackQuery.Message.Photo?.FirstOrDefault()?.FileId != character.Image!;
 
             if (mediaChanged)
               {
@@ -194,13 +194,14 @@ public class CharacterDisplay
 
             string equippedItemsString = character.GetEquippedItemsSimple();
             string inventoryString = character.GetInventoryItemsSimple();
+            //string storageString = GetStorageItemsString(wrapper.UserId);
 
             await BotServices.Instance.Bot.EditMessageCaption(
                 chatId: wrapper.ChatId,
                 messageId: wrapper.MessageId, 
                 caption:
                 $"🧥 Экипированные предметы:\n{equippedItemsString}\n\n" +
-                $"💼 Инвентарь:\n\n<blockquote expandable>{inventoryString}</blockquote>",
+                $"💼 Инвентарь: [{character.Inventory.Count}/40] \n\n<blockquote expandable>{inventoryString}</blockquote>\n\n",
                 replyMarkup: MenuKeyboardShop,
                 parseMode: ParseMode.Html
             );
@@ -237,6 +238,8 @@ public class CharacterDisplay
         string achievementsString = achievements.Count > 0 ? string.Join("\n", achievements) : "";
         string equippedItemsString = character.GetEquippedItemsSimple();
 
+        //string storageString = GetStorageItemsString(IdFrom);
+
         return $"🪪 {character.Name} \n" +
                $"Ваш ID: <tg-spoiler>{character.UserID}</tg-spoiler>\n\n" +
                $"👇 Ваш персонаж:\n" +
@@ -254,9 +257,21 @@ public class CharacterDisplay
                $"💰 Золото: {character.Gold}\n" +
                $"📚 Уровень сюжета: {character.StoryProgression}\n\n" +
                $"🏆 Достижения:\n<blockquote expandable>{achievementsString}</blockquote>\n\n" +
-               $"🪖 Экипированные предметы:\n{equippedItemsString}";
+               $"🪖 Экипированные предметы:\n{equippedItemsString}\n\n";
+              // $"🏛️ Хранилище:\n\n<blockquote expandable>{storageString}</blockquote>\n\n"; 
 
     }
+
+    private static string GetStorageItemsString(long userId)
+    {
+        if (userStorage.ContainsKey(userId))
+        {
+            var items = userStorage[userId];
+            return string.Join("\n", items.Select((item, index) => $"{index + 1}. {item.Name} + {item.Quality}"));
+        }
+        return "Пусто";
+    }
+
 
 }
 

@@ -7,6 +7,7 @@ public static class StringCollection
     public static string jsonFilePresetEnemisDangion => "./JSONs/presetEnemisDangion.json";
     public static string jsonUserCharacterData => "./JSONs/userCharacterData.json";
     public static string jsonUserClaims => "./JSONs/userClaims.json";
+    public static string jsonUserStorage => "./JSONs/userStorage.json";
     #region test_room
     public static int m_forPhotosTEST => 338;
     public static long m_DevMainChatTEST => -1002406550100;
@@ -220,7 +221,9 @@ public static class StringCollection
         { ItemType.Armor, "🛡" },
         { ItemType.Potion, "🧴" },
         { ItemType.Accessory, "📿" },
-        { ItemType.ForSell, "📦" }
+        { ItemType.ForSell, "📦" },
+        { ItemType.Herb, "🌿" },
+        { ItemType.Ore, "🪨" }
     };
 
     public static string RatASCII =>

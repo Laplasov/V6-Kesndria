@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Numerics;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
@@ -94,11 +95,24 @@ public class AttackEnemyHandler
 
             bool range = AreLevelsInSameRange(characterLevel, enemy.Level);
             bool haveRange = true;
+            JobType currentJob = character.OccupationPlayer.CurrentJob;
 
             if (characterLevel > 5 && enemy.Level < 6)
                 haveRange = false;
             else if (characterLevel > 10 && enemy.Level < 11)
                 haveRange = false;
+
+            if (currentJob != JobType.Free)
+            {
+                Message msgJobType = await BotServices.Instance.Bot.SendMessage(
+                    callbackQuery.Message.Chat.Id,
+                    $"{character.Name} \n\nВы на задании и не можете атаковать врага.",
+                    messageThreadId: messageThreadId
+                );
+                _ = MassageDeleter(msgJobType, 30);
+                _ = BotServices.Instance.Bot.AnswerCallbackQuery(wrapper.CallbackQueryId);
+                return;
+            }
 
             if (!haveRange && !canAttack)
             {
